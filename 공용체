@@ -1,0 +1,41 @@
+#include <iostream>
+
+using std::cout;
+using std::endl;
+
+union myUnion
+{
+    char varChar;
+    int varInt;
+    long varLong;
+    float varFloat;
+    double varDouble;
+};
+
+int main()
+{
+    myUnion u1;
+
+    u1.varChar = 'A';
+
+    cout << "^ u1.varChar: " << u1.varChar << endl;
+
+    u1.varInt = 777;
+
+    cout << "^ u1.varInt: " << u1.varInt << endl;
+
+    // 값을 바꾸면 varChar는 사용할 수 없다
+    // 한 시점에 하나의 변수만 사용가능
+    cout << "^ u1.varChar: " << u1.varChar << endl;
+
+    u1.varDouble = 3.14;
+
+    cout << "^ u1.varDouble: " << u1.varDouble << endl;
+
+    // 역시 그전의 값은 소실된다. 
+    // 어떤 결과가 나올지 알수없다.
+    cout << "^ u1.varInt: " << u1.varInt << endl;
+
+    return 0;
+
+}
