@@ -1,0 +1,40 @@
+#include<iostream>
+#include<string.h>
+#define size 10000
+using namespace std;
+int arr[size];
+int top = -1;
+
+int i_empty() {
+	return top == -1;
+}
+void push(int n) {
+	arr[++top] = n;
+ }
+int pop() {
+	if (i_empty()) return -1;
+	else return arr[top--];
+}
+int tp() {
+	if (i_empty()) return -1;
+	else return arr[top];
+}
+
+
+int main() {
+	int tc, num;
+	char str[6];
+
+	cin >> tc;
+	while (tc--) {
+		cin >> str;
+		if (strcmp(str, "push") == 0) {
+			cin >> num;
+			push(num);
+		}
+		else if (strcmp(str, "pop") == 0) cout << pop() << endl;
+		else if (strcmp(str, "top") == 0) cout << tp() << endl;
+		else if (strcmp(str, "empty") == 0) cout << i_empty() << endl;
+		else cout << top + 1 << endl;
+	}
+}
