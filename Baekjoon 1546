@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int n, a, sum[1000] = { 0 }, max = 0;
+	double res = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a > max) max = a;
+		sum[i] = a;
+	}
+	for (int i = 0; i < n; i++) res = res + (double)sum[i] / (double)max * 100.0;
+
+	cout.precision(6);
+	cout << res / (double)n;
+}
