@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+int calcEarnings(int rate, int hours = 40) {
+	return rate * hours;
+}
+
+int main() {
+	int tc, money, hour;
+	
+	cout << "Number of employees : ";
+	cin >> tc;
+
+	while (1) {
+		cout << "Enter the employee's hourly wage and hour in sequence : ";
+		cin >> money;
+		if (money == 0) break;
+
+		cin >> hour;
+		if (hour == 0) {
+			cout << "employee wages : " << calcEarnings(money) << endl;
+			continue;
+		}
+
+		cout << "employee wages : " << calcEarnings(money, hour) << endl;
+	}
+
+	return 0;
+}
